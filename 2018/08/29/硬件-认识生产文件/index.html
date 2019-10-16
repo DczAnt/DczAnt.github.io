@@ -1,0 +1,566 @@
+
+ <!DOCTYPE HTML>
+<html >
+<head>
+  <meta charset="UTF-8">
+  
+    <title>硬件-认识生产文件 | 小熊孩子</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="风神大 D">
+    
+
+    
+    <meta name="description" content="product">
+<meta name="keywords" content="-product">
+<meta property="og:type" content="article">
+<meta property="og:title" content="硬件-认识生产文件">
+<meta property="og:url" content="https://dongzf.work/2018/08/29/硬件-认识生产文件/index.html">
+<meta property="og:site_name" content="小熊孩子">
+<meta property="og:description" content="product">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-08-29T07:18:01.562Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="硬件-认识生产文件">
+<meta name="twitter:description" content="product">
+
+    
+    <link rel="alternative" href="/node_modules/hexo-generator-feed/atom.xml" title="小熊孩子" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="小熊孩子" title="小熊孩子"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="小熊孩子">小熊孩子</a></h1>
+				<h2 class="blog-motto">心之所向，必是吾灵魂归处！  ——风神大 D</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">归档</a></li>
+					
+						<li><a href="/categories/instant">精彩</a></li>
+					
+						<li><a href="/categories/life">感悟</a></li>
+					
+						<li><a href="/categories/hardware">硬件</a></li>
+					
+						<li><a href="/categories/software">软件</a></li>
+					
+						<li><a href="/categories/product">产品</a></li>
+					
+						<li><a href="/categories/about">关于</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="hidden" name="q" value="site:dongzf.work">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2018/08/29/硬件-认识生产文件/" title="硬件-认识生产文件" itemprop="url">硬件-认识生产文件</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="风神大 D" target="_blank" itemprop="author">风神大 D</a>
+		
+  <p class="article-time">
+    <time datetime="2018-08-29T02:19:53.000Z" itemprop="datePublished"> Published 2018-08-29</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#硬件生产"><span class="toc-number">1.</span> <span class="toc-text">硬件生产</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#认识生产文件"><span class="toc-number">1.1.</span> <span class="toc-text">认识生产文件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#硬件设计文件"><span class="toc-number">1.1.1.</span> <span class="toc-text">硬件设计文件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#硬件PCB加工文件-提供给制版厂用于生产裸板"><span class="toc-number">1.1.1.1.</span> <span class="toc-text">硬件PCB加工文件      提供给制版厂用于生产裸板</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#硬件PCBA加工文件-提供给贴片厂用于生产PCBA"><span class="toc-number">1.1.1.2.</span> <span class="toc-text">硬件PCBA加工文件       提供给贴片厂用于生产PCBA</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#产品加工文件-提供给组装厂用于产品组装"><span class="toc-number">1.1.1.3.</span> <span class="toc-text">产品加工文件   提供给组装厂用于产品组装</span></a></li></ol></li></ol></li></ol></li></ol>
+		
+		</div>
+		
+		<h1 id="硬件生产"><a href="#硬件生产" class="headerlink" title="硬件生产"></a>硬件生产</h1><h2 id="认识生产文件"><a href="#认识生产文件" class="headerlink" title="认识生产文件"></a>认识生产文件</h2><h3 id="硬件设计文件"><a href="#硬件设计文件" class="headerlink" title="硬件设计文件"></a>硬件设计文件</h3><h4 id="硬件PCB加工文件-提供给制版厂用于生产裸板"><a href="#硬件PCB加工文件-提供给制版厂用于生产裸板" class="headerlink" title="硬件PCB加工文件      提供给制版厂用于生产裸板"></a>硬件PCB加工文件      <code>提供给制版厂用于生产裸板</code></h4><ul>
+<li>PCB光绘文件gerber；      <code>光绘文件由硬件设计提供，是制版厂加工电路板的核心文件</code>    </li>
+<li>pcb工艺说明；    <code>工艺要求主要是用来指导制版厂如何加工，例如板厚，绿油颜色等等相关加工参数说明</code>    </li>
+<li>特殊走线说明;      <code>硬件设计尤其是高速设计都需要遵循硬件标准规范，例如usb走线要做90欧姆阻抗控制等等</code>    </li>
+<li>加工要求；      <code>该批次生产数量，拼板要求等等非标准类需求</code>    </li>
+</ul>
+<h4 id="硬件PCBA加工文件-提供给贴片厂用于生产PCBA"><a href="#硬件PCBA加工文件-提供给贴片厂用于生产PCBA" class="headerlink" title="硬件PCBA加工文件       提供给贴片厂用于生产PCBA"></a>硬件PCBA加工文件       <code>提供给贴片厂用于生产PCBA</code></h4><ul>
+<li>PCB裸板；   <code>制版厂提供</code>     </li>
+<li>钢网文件；   <code>制版厂提供  ,钢网开孔，上锡</code>     </li>
+<li>物料采购BOM;        <code>硬件设计提供，用于采购物料，成本评估等等</code>     </li>
+<li>贴片BOM；      <code>硬件设计提供，非常重要，这是贴片厂 加工pcba的唯一参考，物料是否贴片严格按照次文件执行，一旦出问题，贴片完成后很难补救</code>    </li>
+<li>器件位置图；      <code>贴片厂参考文件，由硬件设计提供，用于判断器件方向，位置，文件提供了详细的贴片物料位号</code>     </li>
+<li>坐标文件；    <code>硬件设计提供，机贴核心文件，这个决定了每一个元器件摆放位置</code>     </li>
+<li>出厂固件（芯片程序）；   <code>软件提供，这个用于贴片完成，功能测试，等</code>     </li>
+<li>程序烧录说明以及相关烧录工具（软件）；   <code>硬件提供，用于给电路板烧录程序</code>     </li>
+<li>PCBA烧录工装使用说明；        <code>烧录程序指导说明，硬件设计提供，方便制版厂相关工作人员熟悉操作，烧录指导</code>    </li>
+<li>PCBA烧录工装（程序烧录）；</li>
+<li>PCBA检测工具使用说明，标准；       <code>硬件设计提供，用于出厂检测</code>     </li>
+<li>PCBA检测工具（功能测试）；      <code>硬件设计提供，相关人员依照使用说明，检测是否合格使用的工具等</code>       </li>
+</ul>
+<h4 id="产品加工文件-提供给组装厂用于产品组装"><a href="#产品加工文件-提供给组装厂用于产品组装" class="headerlink" title="产品加工文件   提供给组装厂用于产品组装"></a>产品加工文件   <code>提供给组装厂用于产品组装</code></h4><ul>
+<li>产品组装BOM（后线组装BOM）；   <code>完整产品组装的后线bom，此时pcba仅作为产品bom的一个部件</code>      </li>
+<li>sop文件（标准作业流程）;      <code>流水线作业，产品组装的相关流程</code>      </li>
+<li>产品功能测试老化测试说明；    <code>硬件设计提供，根据说明，对组装完成的产品做老化测试，出厂测试等</code>     </li>
+</ul>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/hardware/">hardware</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/product/">-product</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="https://dongzf.work/2018/08/29/硬件-认识生产文件/" data-title="硬件-认识生产文件 | 小熊孩子" data-tsina="" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2018/08/31/硬件-研发与量产/" title="硬件-研发与量产">
+  <strong>上一篇：</strong><br/>
+  <span>
+  硬件-研发与量产</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2018/08/20/Linux-arm-c-移位置位/"  title="Linux-arm-c-移位置位">
+ <strong>下一篇：</strong><br/> 
+ <span>Linux-arm-c-移位置位
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">Contents</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#硬件生产"><span class="toc-number">1.</span> <span class="toc-text">硬件生产</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#认识生产文件"><span class="toc-number">1.1.</span> <span class="toc-text">认识生产文件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#硬件设计文件"><span class="toc-number">1.1.1.</span> <span class="toc-text">硬件设计文件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#硬件PCB加工文件-提供给制版厂用于生产裸板"><span class="toc-number">1.1.1.1.</span> <span class="toc-text">硬件PCB加工文件      提供给制版厂用于生产裸板</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#硬件PCBA加工文件-提供给贴片厂用于生产PCBA"><span class="toc-number">1.1.1.2.</span> <span class="toc-text">硬件PCBA加工文件       提供给贴片厂用于生产PCBA</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#产品加工文件-提供给组装厂用于产品组装"><span class="toc-number">1.1.1.3.</span> <span class="toc-text">产品加工文件   提供给组装厂用于产品组装</span></a></li></ol></li></ol></li></ol></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  
+
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">Categories</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/about/" title="about">about<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/hardware/" title="hardware">hardware<sup>6</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/instant/" title="instant">instant<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/product/" title="product">product<sup>11</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/software/" title="software">software<sup>8</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">Tags</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/software/" title="-software">-software<sup>9</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/BLE/" title="-BLE">-BLE<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Linux-ARM/" title="-Linux_ARM">-Linux_ARM<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/product/" title="-product">-product<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/design/" title="-design">-design<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Linux-ARM-C/" title="--Linux_ARM-C">--Linux_ARM-C<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/sch-pcb/" title="-sch&amp;pcb">-sch&amp;pcb<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/chip-selected/" title="-chip-selected">-chip-selected<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/wonderful-work/" title="-wonderful work">-wonderful work<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/SIMCARD/" title="-SIMCARD">-SIMCARD<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">Links</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="https://www.rt-thread.org/" target="_blank" title="RTOS_Rthread">RTOS_Rthread</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://www.micropython.org/" target="_blank" title="MicroPython">MicroPython</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="/node_modules/hexo-generator-feed/atom.xml" target="_blank" title="rss">RSS</a>
+</div>
+
+  <div class="weiboshow">
+  <p class="asidetitle">Weibo</p>
+    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=&verifier=&dpc=1"></iframe>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> 许多年后，如果只有一个人看，那个人一定是我！ <br/>
+			但愿我的眼睛，只看得到笑容，但愿你流下每一滴泪都让我感动！天上人间，如果真值得歌颂，也是因为有我才会变得更精彩！</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		<a href="mailto:dongzf_89@qq.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		© 2019 
+		
+		<a href="/about" t1arget="_blank" title="风神大 D">风神大 D</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?e6d1f421bbc9962127a50488f9ed37d1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>

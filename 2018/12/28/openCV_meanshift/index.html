@@ -1,0 +1,596 @@
+
+ <!DOCTYPE HTML>
+<html >
+<head>
+  <meta charset="UTF-8">
+  
+    <title>目标追踪 | 小熊孩子</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="风神大 D">
+    
+
+    
+    <meta name="description" content="software">
+<meta name="keywords" content="-software">
+<meta property="og:type" content="article">
+<meta property="og:title" content="目标追踪">
+<meta property="og:url" content="https://dongzf.work/2018/12/28/openCV_meanshift/index.html">
+<meta property="og:site_name" content="小熊孩子">
+<meta property="og:description" content="software">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://dongzf.work/2018/12/28/openCV_meanshift/dongzf_book/images/python_meanshift.png">
+<meta property="og:updated_time" content="2018-12-28T03:31:04.666Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="目标追踪">
+<meta name="twitter:description" content="software">
+<meta name="twitter:image" content="https://dongzf.work/2018/12/28/openCV_meanshift/dongzf_book/images/python_meanshift.png">
+
+    
+    <link rel="alternative" href="/node_modules/hexo-generator-feed/atom.xml" title="小熊孩子" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="小熊孩子" title="小熊孩子"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="小熊孩子">小熊孩子</a></h1>
+				<h2 class="blog-motto">心之所向，必是吾灵魂归处！  ——风神大 D</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">归档</a></li>
+					
+						<li><a href="/categories/instant">精彩</a></li>
+					
+						<li><a href="/categories/life">感悟</a></li>
+					
+						<li><a href="/categories/hardware">硬件</a></li>
+					
+						<li><a href="/categories/software">软件</a></li>
+					
+						<li><a href="/categories/product">产品</a></li>
+					
+						<li><a href="/categories/about">关于</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="hidden" name="q" value="site:dongzf.work">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2018/12/28/openCV_meanshift/" title="目标追踪" itemprop="url">目标追踪</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="风神大 D" target="_blank" itemprop="author">风神大 D</a>
+		
+  <p class="article-time">
+    <time datetime="2018-12-28T03:25:00.000Z" itemprop="datePublished"> Published 2018-12-28</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#目标追踪"><span class="toc-number">1.</span> <span class="toc-text">目标追踪</span></a></li></ol>
+		
+		</div>
+		
+		<h1 id="目标追踪"><a href="#目标追踪" class="headerlink" title="目标追踪"></a>目标追踪</h1><pre><code class="python"><span class="comment">#!/usr/bin/python</span>
+<span class="comment">#  -*- coding:utf-8 -*-</span>
+
+<span class="keyword">import</span> numpy <span class="keyword">as</span> np
+<span class="keyword">import</span> cv2 <span class="keyword">as</span> cv
+
+cap = cv.VideoCapture(<span class="number">0</span>)
+
+<span class="comment"># take first frame of the video</span>
+ret,frame = cap.read()
+
+<span class="comment"># setup initial location of window</span>
+r,h,c,w = <span class="number">250</span>,<span class="number">90</span>,<span class="number">400</span>,<span class="number">125</span>  <span class="comment"># simply hardcoded the values</span>
+track_window = (c,r,w,h)
+
+<span class="comment"># set up the ROI for tracking</span>
+roi = frame[r:r+h, c:c+w]
+hsv_roi = cv.cvtColor(roi, cv.COLOR_BGR2HSV)
+mask = cv.inRange(hsv_roi, np.array((<span class="number">0.</span>, <span class="number">60.</span>,<span class="number">32.</span>)), np.array((<span class="number">180.</span>,<span class="number">255.</span>,<span class="number">255.</span>)))
+roi_hist = cv.calcHist([hsv_roi],[<span class="number">0</span>],mask,[<span class="number">180</span>],[<span class="number">0</span>,<span class="number">180</span>])
+cv.normalize(roi_hist,roi_hist,<span class="number">0</span>,<span class="number">255</span>,cv.NORM_MINMAX)
+
+<span class="comment"># Setup the termination criteria, either 10 iteration or move by atleast 1 pt</span>
+term_crit = ( cv.TERM_CRITERIA_EPS | cv.TERM_CRITERIA_COUNT, <span class="number">10</span>, <span class="number">1</span> )
+
+<span class="keyword">while</span>(<span class="number">1</span>):
+    ret ,frame = cap.read()
+
+    <span class="keyword">if</span> ret == <span class="keyword">True</span>:
+        hsv = cv.cvtColor(frame, cv.COLOR_BGR2HSV)
+        dst = cv.calcBackProject([hsv],[<span class="number">0</span>],roi_hist,[<span class="number">0</span>,<span class="number">180</span>],<span class="number">1</span>)
+
+        <span class="comment"># apply meanshift to get the new location</span>
+        ret, track_window = cv.meanShift(dst, track_window, term_crit)
+
+        <span class="comment"># Draw it on image</span>
+        x,y,w,h = track_window
+        img2 = cv.rectangle(frame, (x,y), (x+w,y+h), <span class="number">255</span>,<span class="number">2</span>)
+        cv.imshow(<span class="string">'img2'</span>,img2)
+
+        k = cv.waitKey(<span class="number">60</span>) &amp; <span class="number">0xff</span>
+        <span class="keyword">if</span> k == <span class="number">27</span>:
+            <span class="keyword">break</span>
+        <span class="keyword">else</span>:
+            cv.imwrite(chr(k)+<span class="string">".jpg"</span>,img2)
+
+    <span class="keyword">else</span>:
+        <span class="keyword">break</span>
+
+cv.destroyAllWindows()
+cap.release()
+</code></pre>
+<p><img src="/2018/12/28/openCV_meanshift/dongzf_book/images/python_meanshift.png" alt="python_meanshift">   </p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/product/">product</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/software/">-software</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="https://dongzf.work/2018/12/28/openCV_meanshift/" data-title="目标追踪 | 小熊孩子" data-tsina="" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2018/12/28/luat_study_timer/" title="luart 函数定时器使用">
+  <strong>上一篇：</strong><br/>
+  <span>
+  luart 函数定时器使用</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2018/12/28/Django_study/"  title="Django study">
+ <strong>下一篇：</strong><br/> 
+ <span>Django study
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">Contents</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#目标追踪"><span class="toc-number">1.</span> <span class="toc-text">目标追踪</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  
+
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">Categories</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/about/" title="about">about<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/hardware/" title="hardware">hardware<sup>6</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/instant/" title="instant">instant<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/product/" title="product">product<sup>11</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/software/" title="software">software<sup>8</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">Tags</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/software/" title="-software">-software<sup>9</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/BLE/" title="-BLE">-BLE<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Linux-ARM/" title="-Linux_ARM">-Linux_ARM<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/product/" title="-product">-product<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/design/" title="-design">-design<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Linux-ARM-C/" title="--Linux_ARM-C">--Linux_ARM-C<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/sch-pcb/" title="-sch&amp;pcb">-sch&amp;pcb<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/chip-selected/" title="-chip-selected">-chip-selected<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/wonderful-work/" title="-wonderful work">-wonderful work<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/SIMCARD/" title="-SIMCARD">-SIMCARD<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">Links</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="https://www.rt-thread.org/" target="_blank" title="RTOS_Rthread">RTOS_Rthread</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://www.micropython.org/" target="_blank" title="MicroPython">MicroPython</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="/node_modules/hexo-generator-feed/atom.xml" target="_blank" title="rss">RSS</a>
+</div>
+
+  <div class="weiboshow">
+  <p class="asidetitle">Weibo</p>
+    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=&verifier=&dpc=1"></iframe>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> 许多年后，如果只有一个人看，那个人一定是我！ <br/>
+			但愿我的眼睛，只看得到笑容，但愿你流下每一滴泪都让我感动！天上人间，如果真值得歌颂，也是因为有我才会变得更精彩！</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		<a href="mailto:dongzf_89@qq.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		© 2019 
+		
+		<a href="/about" t1arget="_blank" title="风神大 D">风神大 D</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?e6d1f421bbc9962127a50488f9ed37d1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>

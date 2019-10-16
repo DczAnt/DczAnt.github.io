@@ -1,0 +1,548 @@
+
+ <!DOCTYPE HTML>
+<html >
+<head>
+  <meta charset="UTF-8">
+  
+    <title>硬件-研发与量产 | 小熊孩子</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="风神大 D">
+    
+
+    
+    <meta name="description" content="product">
+<meta name="keywords" content="-product">
+<meta property="og:type" content="article">
+<meta property="og:title" content="硬件-研发与量产">
+<meta property="og:url" content="https://dongzf.work/2018/08/31/硬件-研发与量产/index.html">
+<meta property="og:site_name" content="小熊孩子">
+<meta property="og:description" content="product">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-09-03T07:41:40.912Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="硬件-研发与量产">
+<meta name="twitter:description" content="product">
+
+    
+    <link rel="alternative" href="/node_modules/hexo-generator-feed/atom.xml" title="小熊孩子" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="小熊孩子" title="小熊孩子"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="小熊孩子">小熊孩子</a></h1>
+				<h2 class="blog-motto">心之所向，必是吾灵魂归处！  ——风神大 D</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">归档</a></li>
+					
+						<li><a href="/categories/instant">精彩</a></li>
+					
+						<li><a href="/categories/life">感悟</a></li>
+					
+						<li><a href="/categories/hardware">硬件</a></li>
+					
+						<li><a href="/categories/software">软件</a></li>
+					
+						<li><a href="/categories/product">产品</a></li>
+					
+						<li><a href="/categories/about">关于</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="hidden" name="q" value="site:dongzf.work">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2018/08/31/硬件-研发与量产/" title="硬件-研发与量产" itemprop="url">硬件-研发与量产</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="风神大 D" target="_blank" itemprop="author">风神大 D</a>
+		
+  <p class="article-time">
+    <time datetime="2018-08-31T02:19:53.000Z" itemprop="datePublished"> Published 2018-08-31</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#硬件设计认知"><span class="toc-number">1.</span> <span class="toc-text">硬件设计认知</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#硬件设计要考虑哪些方面"><span class="toc-number">1.1.</span> <span class="toc-text">硬件设计要考虑哪些方面</span></a></li></ol></li></ol>
+		
+		</div>
+		
+		<h1 id="硬件设计认知"><a href="#硬件设计认知" class="headerlink" title="硬件设计认知"></a>硬件设计认知</h1><h2 id="硬件设计要考虑哪些方面"><a href="#硬件设计要考虑哪些方面" class="headerlink" title="硬件设计要考虑哪些方面"></a>硬件设计要考虑哪些方面</h2><ul>
+<li>硬件设计——对设计实现做出合理评估很重要<br>优秀的设计师拿到需求，随着对功能的需求的理解，产品雏形已经在脑海里形成；<br>更优秀的设计师在拿到需求的时候，随着对功能需求的理解，不断的提出质疑，肯定，否定，再肯定，再否定，产品雏形在脑海里不断碎了重建，重建了又碎；<br>大师级设计师拿到需求，已经不关注某一个需求，某一个点了，脑袋里已经在不停的构建一个产品的生命周期！<code>这是我的理解，也是我的目标！</code></li>
+<li>硬件设计——成本我们没法绕开，随着互联网+ 它也在不停的变化<br>很多产品经理，都是先把功能实现了，需求满足了，我们再考虑成本！<br>成本，到底该怎么定义，怎么理解？<br>随着硬件软件越来越模糊，结合点越来越多，成本已经不再是纯物料成本可以衡量评估的了：<br>1 硬件物料成本;<br>2 产品组装成本；<br>3 产品维护成本；<br>以前玩硬件的，都是物料成本是重头戏，现在呢，人力成本的上升不仅对设计提出了高要求，设计要更加自动化，尽量避免过多人力干预；更多的是，人力成本对公司来说已经不可忽视！</li>
+<li>硬件设计——量产的锅也得背<br>曾几何时，研发和生产还时分离的：<br>研发经常会收到生产发来的邮件“这个贴片BOM里有，器件位置图叉掉了，哪个是对的”“制版厂让我问你你那个pcb好像有usb，但是没说是否做阻抗控制，尽快确认，要不会延期”诸如此类，邮件满天飞<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">同样生产也会收到很多研发的邮件&quot;有个器件忘了，机贴完了，安排补焊下!&quot; &quot;这个物料有替料，不带固定柱，重新采购个&quot; &quot;这个地方有禁区，神马情况，没听说啊&quot;</span><br><span class="line">回想起来，保守估计，有一万只草泥马飘过</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p>现在，当下，未来：量产时目标，也是责任！<br>作为设计，第一批次小样，一定要去跟生产的，只有这样你才知道你的器件是否摆放合理，你的器件布局是否有干扰，你的走线是否加工有难度，不一定要去现场，但是必要的沟通是一定要有的！第一批试样组装，一定要去秀一下，只有这样，你才能取做优化调整，你的东西才能离量产更近！<br>硬件设计，画图纸，已经并非最重要的，越来越开源，越来越多的优秀设计你可以拿来用，更多的你得关注量产，关注成本，关注体验！纳尼？这不是产品经理要做的吗？不然，做与不做在你，而你与量产的距离渐行渐远，这个行业与你的距离也已肉眼不可见了<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">* 硬件设计——你也得有软的时候</span><br><span class="line">物联网，互联网+ 越来越多的新鲜词，带来的是便利，但是也是融合，硬件设计也得考虑软体！</span><br><span class="line">物联网设备越来越普遍，一个简单的模型，传感器+广域网通讯+平台，这里到底有多少坑，有多少要从设计就开始规避的，有多少要优化调整来给量产铺路的？很多，很杂；很多细节；软件，硬件，平台，乱七八糟，都得考虑；</span><br><span class="line">界限模糊了，不要求你一气呵成写代码，但是开始尝试着去理解它吧，你会发现你的设计再不知不觉中已经在优化改进了，硬件的设计更加贴合应用层开发，万物互联，你能抓住硬件通往软件的捷径就是胜利！</span><br><span class="line">同样的设计，同样的物联网模型，有的出来了，各种平台兼容，各种秀，有的出来了~~~~“什么，要接入其他平台，没问题，就是硬件固件得更新”，也有的出来了是这样的“大概量产后200软妹币吧，实际可能有偏差，但是浮动不大”“什么！隔壁家的怎么不到150，再看看，看看是不是哪里跟人家不一样”</span><br><span class="line">别人家的一定是最好的，但是你也得有成为别人眼里的“别家”的心！</span><br><span class="line">## 设计到量产——那么远，又那么近！</span><br><span class="line">诚然，设计到量产的时间轴很长，但是你的设计就是为了量产，你的设计每一个点都是在为量产铺路，是羊肠小径，还是康庄大道？</span><br><span class="line">回到起点，你设计的开始，量产就已经在演变了</span><br></pre></td></tr></table></figure></p>
+<p>做设计——我是认真的！</p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/hardware/">hardware</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/product/">-product</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="https://dongzf.work/2018/08/31/硬件-研发与量产/" data-title="硬件-研发与量产 | 小熊孩子" data-tsina="" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2018/09/03/硬件-测试/" title="硬件-测试">
+  <strong>上一篇：</strong><br/>
+  <span>
+  硬件-测试</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2018/08/29/硬件-认识生产文件/"  title="硬件-认识生产文件">
+ <strong>下一篇：</strong><br/> 
+ <span>硬件-认识生产文件
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">Contents</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#硬件设计认知"><span class="toc-number">1.</span> <span class="toc-text">硬件设计认知</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#硬件设计要考虑哪些方面"><span class="toc-number">1.1.</span> <span class="toc-text">硬件设计要考虑哪些方面</span></a></li></ol></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  
+
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">Categories</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/about/" title="about">about<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/hardware/" title="hardware">hardware<sup>6</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/instant/" title="instant">instant<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/product/" title="product">product<sup>11</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/software/" title="software">software<sup>8</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">Tags</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/software/" title="-software">-software<sup>9</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/BLE/" title="-BLE">-BLE<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Linux-ARM/" title="-Linux_ARM">-Linux_ARM<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/product/" title="-product">-product<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/design/" title="-design">-design<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Linux-ARM-C/" title="--Linux_ARM-C">--Linux_ARM-C<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/sch-pcb/" title="-sch&amp;pcb">-sch&amp;pcb<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/chip-selected/" title="-chip-selected">-chip-selected<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/wonderful-work/" title="-wonderful work">-wonderful work<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/SIMCARD/" title="-SIMCARD">-SIMCARD<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">Links</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="https://www.rt-thread.org/" target="_blank" title="RTOS_Rthread">RTOS_Rthread</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://www.micropython.org/" target="_blank" title="MicroPython">MicroPython</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="/node_modules/hexo-generator-feed/atom.xml" target="_blank" title="rss">RSS</a>
+</div>
+
+  <div class="weiboshow">
+  <p class="asidetitle">Weibo</p>
+    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=&verifier=&dpc=1"></iframe>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> 许多年后，如果只有一个人看，那个人一定是我！ <br/>
+			但愿我的眼睛，只看得到笑容，但愿你流下每一滴泪都让我感动！天上人间，如果真值得歌颂，也是因为有我才会变得更精彩！</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		<a href="mailto:dongzf_89@qq.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		© 2019 
+		
+		<a href="/about" t1arget="_blank" title="风神大 D">风神大 D</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?e6d1f421bbc9962127a50488f9ed37d1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>

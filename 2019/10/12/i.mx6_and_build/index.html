@@ -1,0 +1,552 @@
+
+ <!DOCTYPE HTML>
+<html >
+<head>
+  <meta charset="UTF-8">
+  
+    <title>小熊孩子</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="风神大 D">
+    
+
+    
+    <meta name="description" content="安卓4.4编译基于i.mx6编译指令1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757677787980818283848586878889source env.sh">
+<meta property="og:type" content="article">
+<meta property="og:title" content="小熊孩子">
+<meta property="og:url" content="https://dongzf.work/2019/10/12/i.mx6_and_build/index.html">
+<meta property="og:site_name" content="小熊孩子">
+<meta property="og:description" content="安卓4.4编译基于i.mx6编译指令1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757677787980818283848586878889source env.sh">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-01-18T05:56:31.625Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="小熊孩子">
+<meta name="twitter:description" content="安卓4.4编译基于i.mx6编译指令1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757677787980818283848586878889source env.sh">
+
+    
+    <link rel="alternative" href="/node_modules/hexo-generator-feed/atom.xml" title="小熊孩子" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="小熊孩子" title="小熊孩子"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="小熊孩子">小熊孩子</a></h1>
+				<h2 class="blog-motto">心之所向，必是吾灵魂归处！  ——风神大 D</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">归档</a></li>
+					
+						<li><a href="/categories/instant">精彩</a></li>
+					
+						<li><a href="/categories/life">感悟</a></li>
+					
+						<li><a href="/categories/hardware">硬件</a></li>
+					
+						<li><a href="/categories/software">软件</a></li>
+					
+						<li><a href="/categories/product">产品</a></li>
+					
+						<li><a href="/categories/about">关于</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="hidden" name="q" value="site:dongzf.work">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2019/10/12/i.mx6_and_build/" title="" itemprop="url"></a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="风神大 D" target="_blank" itemprop="author">风神大 D</a>
+		
+  <p class="article-time">
+    <time datetime="2019-10-12T03:15:49.402Z" itemprop="datePublished"> Published 2019-10-12</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#安卓4-4编译基于i-mx6"><span class="toc-number">1.</span> <span class="toc-text">安卓4.4编译基于i.mx6</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#编译指令"><span class="toc-number">1.1.</span> <span class="toc-text">编译指令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#屏蔽开机气泡提示"><span class="toc-number">1.1.1.</span> <span class="toc-text">屏蔽开机气泡提示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#修改壁纸"><span class="toc-number">1.1.2.</span> <span class="toc-text">修改壁纸</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#开启root权限"><span class="toc-number">1.1.3.</span> <span class="toc-text">开启root权限</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#添加自动安装apk"><span class="toc-number">1.1.4.</span> <span class="toc-text">添加自动安装apk</span></a></li></ol></li></ol></li></ol>
+		
+		</div>
+		
+		<h1 id="安卓4-4编译基于i-mx6"><a href="#安卓4-4编译基于i-mx6" class="headerlink" title="安卓4.4编译基于i.mx6"></a>安卓4.4编译基于i.mx6</h1><h2 id="编译指令"><a href="#编译指令" class="headerlink" title="编译指令"></a>编译指令</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br></pre></td><td class="code"><pre><span class="line">source env.sh  </span><br><span class="line">source build/envsetup.sh  </span><br><span class="line">lunch okmx6qd_c-eng  </span><br><span class="line">make clean  </span><br><span class="line">make -j8 <span class="number">2</span>&gt;&amp;<span class="number">1</span> | tee build.<span class="built_in">log</span>  </span><br><span class="line">```     </span><br><span class="line">## 编译生成文件    </span><br><span class="line">+ 路径     </span><br><span class="line">```     </span><br><span class="line">android_kk4<span class="number">.4</span><span class="number">.2</span>_1<span class="number">.0</span><span class="number">.0</span>/out/target/product/okmx6dq_c  </span><br><span class="line">```     </span><br><span class="line">+ 文件    </span><br><span class="line">```    </span><br><span class="line">boot.img</span><br><span class="line">recovery.img</span><br><span class="line">system.img</span><br><span class="line">u-boot<span class="number">-6</span>q.bin</span><br><span class="line">u-boot<span class="number">-6</span>dl.bin</span><br><span class="line">```     </span><br><span class="line">## 单独编译UBOOT     </span><br><span class="line">+ 编译指令       </span><br><span class="line">```   </span><br><span class="line">source env.sh  </span><br><span class="line">source build/envsetup.sh  </span><br><span class="line">make -C bootable/bootloader/uboot-imx distclean  </span><br><span class="line">make -C bootable/bootloader/uboot-imx okmx6q_c_android_config  <span class="comment">//四核编译uboot</span></span><br><span class="line">make -C bootable/bootloader/uboot-imx -j8  <span class="comment">//生成uboot文件</span></span><br><span class="line">```    </span><br><span class="line">## 驱动代码路径   </span><br><span class="line">| 设备               | 驱动程序源代码在内核中的位置                              | 设备名                  |</span><br><span class="line">|------------------|---------------------------------------------|----------------------|</span><br><span class="line">| 网卡驱动             | drivers/net/fec.c                           | eth0                 |</span><br><span class="line">| LCD 背光驱动         | drivers/video/backlight/pwm_bl.c            | /sys/<span class="class"><span class="keyword">class</span>/<span class="title">backlight</span> |</span></span><br><span class="line"><span class="class">| <span class="title">USB</span> 接口 <span class="title">U</span> 盘       | <span class="title">drivers</span>/<span class="title">usb</span>/<span class="title">storage</span>/                        | /<span class="title">dev</span>/<span class="title">sdX</span>             |</span></span><br><span class="line"><span class="class">| <span class="title">USB</span> 鼠标           | <span class="title">drivers</span>/<span class="title">hid</span>/<span class="title">usbhid</span>/                         | /<span class="title">dev</span>/<span class="title">input</span>/<span class="title">mice</span>      |</span></span><br><span class="line"><span class="class">| <span class="title">USB3G</span>            | <span class="title">drivers</span>/<span class="title">usb</span>/<span class="title">serial</span>/                         | /<span class="title">dev</span>/<span class="title">ttyUSB</span>*         |</span></span><br><span class="line"><span class="class">| <span class="title">USB</span> <span class="title">Camera</span>       | <span class="title">drivers</span>/<span class="title">media</span>/<span class="title">video</span>/<span class="title">uvc</span>/                    | /<span class="title">dev</span>/<span class="title">video2</span>          |</span></span><br><span class="line"><span class="class">| <span class="title">SD</span>/<span class="title">micro</span> <span class="title">SD</span> 卡驱动  | <span class="title">drivers</span>/<span class="title">mmc</span>/<span class="title">card</span>/                           | /<span class="title">dev</span>/<span class="title">block</span>/<span class="title">mmcblk1pX</span> |</span></span><br><span class="line"><span class="class">| <span class="title">EMMC</span> 驱动          | <span class="title">drivers</span>/<span class="title">mmc</span>/                                | /<span class="title">dev</span>/<span class="title">block</span>/<span class="title">mmcblk0pX</span> |</span></span><br><span class="line"><span class="class">| <span class="title">SATA</span> 驱动          | <span class="title">drivers</span>/<span class="title">ata</span>/<span class="title">ahci_platform</span>.<span class="title">c</span>                 | /<span class="title">dev</span>/<span class="title">sda</span>*            |</span></span><br><span class="line"><span class="class">| <span class="title">OV5640</span>           | <span class="title">drivers</span>/<span class="title">media</span>/<span class="title">video</span>/<span class="title">mxc</span>/<span class="title">capture</span>/<span class="title">ov5640</span>.<span class="title">c</span>    | /<span class="title">dev</span>/<span class="title">video0</span>          |</span></span><br><span class="line"><span class="class">| <span class="title">OV5640_mipi</span>      | "<span class="title">drivers</span>/<span class="title">media</span>/<span class="title">video</span>/<span class="title">mxc</span>/<span class="title">capture</span>/<span class="title">ov5640_mip</span> |</span></span><br><span class="line"><span class="class">| <span class="title">i</span>.<span class="title">c</span>"             | /<span class="title">dev</span>/<span class="title">video1</span>                                 |</span></span><br><span class="line"><span class="class">| <span class="title">LVDS</span>             | <span class="title">drivers</span>/<span class="title">video</span>/<span class="title">mxc</span>/<span class="title">ldb</span>.<span class="title">c</span>                     | /<span class="title">dev</span>/<span class="title">fb</span>*             |</span></span><br><span class="line"><span class="class">| <span class="title">HDMI</span>             | <span class="title">drivers</span>/<span class="title">video</span>/<span class="title">mxc_hdmi</span>.<span class="title">c</span>                    | /<span class="title">dev</span>/<span class="title">fb</span>*             |</span></span><br><span class="line"><span class="class">| <span class="title">MIPI</span>             | <span class="title">Drivers</span>/<span class="title">video</span>/<span class="title">mxc</span>/<span class="title">mxcfb_ek79007_wvga</span>.<span class="title">c</span>      | /<span class="title">dev</span>/<span class="title">fb</span>*             |</span></span><br><span class="line"><span class="class">| <span class="title">LCD</span> <span class="title">FrameBuffer</span>  | <span class="title">drivers</span>/<span class="title">video</span>/<span class="title">mxc</span>/<span class="title">mxc_lcdif</span>.<span class="title">c</span>               | /<span class="title">dev</span>/<span class="title">fb</span>*             |</span></span><br><span class="line"><span class="class">| 电容触摸驱动           | <span class="title">drivers</span>/<span class="title">input</span>/<span class="title">touchscreen</span>/<span class="title">ft5x06_ts</span>.<span class="title">c</span>       | /<span class="title">dev</span>/<span class="title">input</span>/<span class="title">event</span>*    |</span></span><br><span class="line"><span class="class">| <span class="title">RTC</span> 实时时钟驱动       | <span class="title">drivers</span>/<span class="title">rtc</span>/<span class="title">rtc</span>-<span class="title">rx8010</span>.<span class="title">c</span>                    | /<span class="title">dev</span>/<span class="title">rtc0</span>            |</span></span><br><span class="line"><span class="class">| <span class="title">SPI</span> 驱动           | <span class="title">drivers</span>/<span class="title">spi</span>/<span class="title">spidev</span>.<span class="title">c</span>                        | /<span class="title">dev</span>/                |</span></span><br><span class="line"><span class="class">| 串口               | <span class="title">drivers</span>/<span class="title">tty</span>/<span class="title">serial</span>/<span class="title">imx</span>.<span class="title">c</span>                    | /<span class="title">dev</span>/                |</span></span><br><span class="line"><span class="class">| 按键驱动             | <span class="title">drivers</span>/<span class="title">input</span>/<span class="title">keyboard</span>/<span class="title">gpio_keys</span>.<span class="title">c</span>          | /<span class="title">dev</span>/<span class="title">ttymxc</span>*         |</span></span><br><span class="line"><span class="class">| 看门狗驱动            | <span class="title">drivers</span>/<span class="title">watchdog</span>/<span class="title">imx2_wdt</span>.<span class="title">c</span>                 | /<span class="title">dev</span>/<span class="title">watchdog</span>        |</span></span><br><span class="line"><span class="class">| <span class="title">RS485</span> 驱动         | <span class="title">drivers</span>/<span class="title">tty</span>/<span class="title">serial</span>/<span class="title">imx</span>.<span class="title">c</span>                    | /<span class="title">dev</span>/<span class="title">ttymxc</span>*         |</span></span><br><span class="line"><span class="class">| <span class="title">CAN</span> 驱动           | <span class="title">drivers</span>/<span class="title">net</span>/<span class="title">can</span>/<span class="title">flexcan</span>.<span class="title">c</span>                   | <span class="title">can0</span>                 |</span></span><br><span class="line"><span class="class">| <span class="title">USB</span> <span class="title">BlueTooth</span>    | <span class="title">drivers</span>/<span class="title">bluetooth</span>                           |                      |</span></span><br><span class="line"><span class="class">| <span class="title">USB</span> <span class="title">WIFI</span>         | <span class="title">drivers</span>/<span class="title">net</span>/<span class="title">wireless</span>                        | <span class="title">wlan0</span>                |</span></span><br><span class="line"><span class="class">| 音频驱动             | <span class="title">sound</span>/<span class="title">soc</span>/<span class="title">codec</span>/<span class="title">wm8962</span>.<span class="title">c</span>                    | /<span class="title">dev</span>/<span class="title">snd</span>/*           |  </span></span><br><span class="line"><span class="class">## 更改项      </span></span><br><span class="line"><span class="class">### 禁用<span class="title">GPS</span>  </span></span><br><span class="line"><span class="class">+ 具体方法     </span></span><br><span class="line"><span class="class">```<span class="title">C</span>     </span></span><br><span class="line"><span class="class">// 去掉<span class="title">init</span>.<span class="title">rc</span>中的定义</span></span><br><span class="line"><span class="class"><span class="title">diff</span> --<span class="title">git</span> <span class="title">a</span>/<span class="title">device</span>/<span class="title">fsl</span>/<span class="title">sabresd_6dq</span>/<span class="title">init</span>.<span class="title">rc</span> <span class="title">b</span>/<span class="title">device</span>/<span class="title">fsl</span>/<span class="title">sabresd_6dq</span>/<span class="title">init</span>.<span class="title">rc</span></span></span><br><span class="line"><span class="class"><span class="title">index</span> 8<span class="title">be2c838c9</span>..<span class="title">ce674ae330</span> 100755</span></span><br><span class="line"><span class="class">--- <span class="title">a</span>/<span class="title">device</span>/<span class="title">fsl</span>/<span class="title">sabresd_6dq</span>/<span class="title">init</span>.<span class="title">rc</span></span></span><br><span class="line"><span class="class">+++ <span class="title">b</span>/<span class="title">device</span>/<span class="title">fsl</span>/<span class="title">sabresd_6dq</span>/<span class="title">init</span>.<span class="title">rc</span></span></span><br><span class="line"><span class="class">@@ -23,7 +23,7 @@ <span class="title">on</span> <span class="title">boot</span></span></span><br><span class="line"><span class="class">     <span class="title">symlink</span> /<span class="title">dev</span>/<span class="title">mxs_viim</span> /<span class="title">dev</span>/<span class="title">mxc_mem</span></span></span><br><span class="line"><span class="class"></span></span><br><span class="line"><span class="class">     # <span class="title">Set</span> <span class="title">GPS</span> <span class="title">serial</span> <span class="title">and</span> <span class="title">reset</span> <span class="title">GPIO</span> <span class="title">pin</span></span></span><br><span class="line"><span class="class">-    <span class="title">setprop</span> <span class="title">ro</span>.<span class="title">kernel</span>.<span class="title">android</span>.<span class="title">gps</span> /<span class="title">dev</span>/<span class="title">ttymxc3</span></span></span><br><span class="line"><span class="class">+    #<span class="title">setprop</span> <span class="title">ro</span>.<span class="title">kernel</span>.<span class="title">android</span>.<span class="title">gps</span> /<span class="title">dev</span>/<span class="title">ttymxc3</span></span></span><br><span class="line"><span class="class">     #<span class="title">setprop</span> <span class="title">ro</span>.<span class="title">kernel</span>.<span class="title">android</span>.<span class="title">gps</span> /<span class="title">dev</span>/<span class="title">athrnmea</span></span></span><br><span class="line"><span class="class">     #<span class="title">setprop</span> <span class="title">persist</span>.<span class="title">gps</span>.<span class="title">oacmode</span> @<span class="title">f</span></span></span><br><span class="line"><span class="class">     #<span class="title">symlink</span> /<span class="title">dev</span>/<span class="title">ttymxc3</span> /<span class="title">dev</span>/<span class="title">gpsdevice</span>   </span></span><br><span class="line"><span class="class">```     </span></span><br><span class="line"><span class="class">```<span class="title">C</span>     </span></span><br><span class="line"><span class="class">//禁用<span class="title">GPS</span>编译   </span></span><br><span class="line"><span class="class"><span class="title">mv</span> <span class="title">hardware</span>/<span class="title">imx</span>/<span class="title">libgps</span>-<span class="title">vk</span>/<span class="title">Android</span>.<span class="title">mk</span> <span class="title">hardware</span>/<span class="title">imx</span>/<span class="title">libgps</span>-<span class="title">vk</span>/<span class="title">Android</span>.<span class="title">txt</span></span></span><br><span class="line"><span class="class"><span class="title">mv</span> <span class="title">hardware</span>/<span class="title">imx</span>/<span class="title">libgps</span>/<span class="title">Android</span>.<span class="title">mk</span> <span class="title">hardware</span>/<span class="title">imx</span>/<span class="title">libgps</span>/<span class="title">Android</span>.<span class="title">txt</span>  </span></span><br><span class="line"><span class="class">```  </span></span><br><span class="line"><span class="class">```<span class="title">C</span></span></span><br><span class="line"><span class="class">//清空编译</span></span><br><span class="line"><span class="class"><span class="title">make</span> <span class="title">clean</span>  </span></span><br><span class="line"><span class="class">```  </span></span><br><span class="line"><span class="class">### 更改视频输出默认<span class="title">FB0</span> 输出<span class="title">HDMI</span>       </span></span><br><span class="line"><span class="class">+ 具体方法     </span></span><br><span class="line"><span class="class">    更改路径</span></span><br></pre></td></tr></table></figure>
+<pre><code>/work/forlinx/bootable/bootloader/uboot-imx/include/configs
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">    更改文件     </span><br><span class="line">    ```  </span><br><span class="line">    mx6q_sabresd.h</span><br><span class="line">    ```  </span><br><span class="line">    更改内容   </span><br><span class="line">    ```C    </span><br><span class="line">    #define LVDS_MODE        &quot;ldb_mode=ldb=sin0\0&quot;</span><br><span class="line">    #if defined(CONFIG_UBOOT_KERNEL_LVDS)</span><br><span class="line">    #define MXC_FB0          &quot;mxcfb0=video=mxcfb0:dev=ldb,LDB-WXGA,if=RGB24,bpp=32\0&quot;</span><br><span class="line">    #define MXC_FB1          &quot;mxcfb1=video=mxcfb1:dev=hdmi,1920x1080M@60,if=RGB24,bpp=32\0&quot;</span><br><span class="line">    #define FB0BASE          &quot;fb0base=fb0base=0x27b00000\0&quot; </span><br><span class="line">    #define FBMEM	    &quot;fbmem=fbmem=28M\0&quot;	</span><br><span class="line">    #define PANEL            &quot;panel=LDB-WXGA\0&quot;</span><br><span class="line">    #elif defined(CONFIG_UBOOT_KERNEL_MIPI)</span><br><span class="line">    #define MXC_FB0          &quot;mxcfb0=video=mxcfb0:dev=mipi_dsi,TRULY-EK79007-WVGA,if=RGB24,bpp=32\0&quot;</span><br><span class="line">    #define MXC_FB1          &quot;mxcfb1=video=mxcfb1:dev=hdmi,1920x1080M@60,if=RGB24,bpp=32\0&quot;</span><br><span class="line">    #define FB0BASE           </span><br><span class="line">    #define FBMEM	    	</span><br><span class="line">    #define PANEL            &quot;panel=TRULY-EK79007-WVGA\0&quot;</span><br><span class="line">    #elif defined(CONFIG_UBOOT_KERNEL_LCD)</span><br><span class="line">    #define MXC_FB0          &quot;mxcfb0=video=mxcfb0:dev=hdmi,1920x1080M@60,if=RGB24,bpp=32\0&quot;</span><br><span class="line">    #define MXC_FB1          //&quot;mxcfb1=video=mxcfb1:dev=hdmi,1920x1080M@60,if=RGB24,bpp=32\0&quot;</span><br><span class="line">    #define FB0BASE          //&quot;fb0base=fb0base=0x27b00000\0&quot; </span><br><span class="line">    #define FBMEM	    	 //&quot;fbmem=fbmem=28M\0&quot;	</span><br><span class="line">    #define PANEL            //&quot;panel=AT070-WVGA\0&quot;</span><br><span class="line">    #endif  </span><br><span class="line">    ```  </span><br><span class="line">### 配置音频芯片晶振为外部晶振   </span><br><span class="line">+ 具体方法       </span><br><span class="line">    更改路径</span><br></pre></td></tr></table></figure>
+
+/work/forlinx/bootable/bootloader/uboot-imx/include/configs
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">    更改文件  </span><br><span class="line">    ```  </span><br><span class="line">    mx6q_sabresd.h</span><br><span class="line">    ```  </span><br><span class="line">    更改内容</span><br><span class="line">    ```C  </span><br><span class="line">    #if defined(BOARD_IS_OKMX6_S2)</span><br><span class="line">    #define DEFAULT_CODEC    &quot;codec_name=audio_codec=wm8962\0&quot;</span><br><span class="line">    #else</span><br><span class="line">    #define DEFAULT_CODEC    &quot;codec_name=audio_codec=wm8960-11M\0&quot;</span><br><span class="line">    #endif</span><br><span class="line">    ```   </span><br><span class="line">### 关闭休眠判定   </span><br><span class="line">### 移除锁屏  </span><br><span class="line">+ 具体方法  </span><br><span class="line">    更改路径</span><br></pre></td></tr></table></figure>
+
+/work/forlinx/frameworks/base/packages/Keyguard/src/com/android/keyguard
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line">更改文件  </span><br><span class="line">```  </span><br><span class="line">KeyguardViewMediator.java</span><br><span class="line">```  </span><br><span class="line">更改内容</span><br><span class="line">```java  </span><br><span class="line">private boolean mExternallyEnabled = false  </span><br><span class="line">```java</span><br><span class="line">    private void doKeyguardLocked(Bundle options) &#123;</span><br><span class="line">    // if another app is disabling us, don&apos;t show</span><br><span class="line">    if (!mExternallyEnabled) &#123;</span><br><span class="line">        if (DEBUG) Log.d(TAG, &quot;doKeyguard: not showing because externally disabled&quot;);</span><br><span class="line"></span><br><span class="line">        // note: we *should* set mNeedToReshowWhenReenabled=true here, but that makes</span><br><span class="line">        // for an occasional ugly flicker in this situation:</span><br><span class="line">        // 1) receive a call with the screen on (no keyguard) or make a call</span><br><span class="line">        // 2) screen times out</span><br><span class="line">        // 3) user hits key to turn screen back on</span><br><span class="line">        // instead, we reenable the keyguard when we know the screen is off and the call</span><br><span class="line">        // ends (see the broadcast receiver below)</span><br><span class="line">        // TODO: clean this up when we have better support at the window manager level</span><br><span class="line">        // for apps that wish to be on top of the keyguard</span><br><span class="line">        return;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // if the keyguard is already showing, don&apos;t bother</span><br><span class="line">    if (mKeyguardViewManager.isShowing()) &#123;</span><br><span class="line">        if (DEBUG) Log.d(TAG, &quot;doKeyguard: not showing because it is already showing&quot;);</span><br><span class="line">        return;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // if the setup wizard hasn&apos;t run yet, don&apos;t show</span><br><span class="line">    final boolean requireSim = !SystemProperties.getBoolean(&quot;keyguard.no_require_sim&quot;,</span><br><span class="line">            false);</span><br><span class="line">    final boolean provisioned = mUpdateMonitor.isDeviceProvisioned();</span><br><span class="line">    final IccCardConstants.State state = mUpdateMonitor.getSimState();</span><br><span class="line">    final boolean lockedOrMissing = state.isPinLocked()</span><br><span class="line">            || ((state == IccCardConstants.State.ABSENT</span><br><span class="line">            || state == IccCardConstants.State.PERM_DISABLED)</span><br><span class="line">            &amp;&amp; requireSim);</span><br><span class="line"></span><br><span class="line">    if (!lockedOrMissing &amp;&amp; !provisioned) &#123;</span><br><span class="line">        if (DEBUG) Log.d(TAG, &quot;doKeyguard: not showing because device isn&apos;t provisioned&quot;</span><br><span class="line">                + &quot; and the sim is not locked or missing&quot;);</span><br><span class="line">        return;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    if (mUserManager.getUsers(true).size() &lt; 2</span><br><span class="line">            &amp;&amp; mLockPatternUtils.isLockScreenDisabled() &amp;&amp; !lockedOrMissing) &#123;</span><br><span class="line">        if (DEBUG) Log.d(TAG, &quot;doKeyguard: not showing because lockscreen is off&quot;);</span><br><span class="line">        return;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    if (DEBUG) Log.d(TAG, &quot;doKeyguard: showing the lock screen&quot;);</span><br><span class="line">    +        // showLocked(options);</span><br><span class="line">&#125;</span><br><span class="line">``` </span><br><span class="line">更改路径</span><br></pre></td></tr></table></figure>
+
+/work/forlinx/frameworks/base/packages/SettingsProvider/res/values
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">更改文件  </span><br><span class="line">```  </span><br><span class="line">defaults.xml</span><br><span class="line">```  </span><br><span class="line">更改内容</span><br><span class="line">```java</span><br><span class="line">&lt;bool name=&quot;def_lockscreen_disabled&quot;&gt;true&lt;/bool&gt;</span><br></pre></td></tr></table></figure>
+</code></pre><h3 id="屏蔽开机气泡提示"><a href="#屏蔽开机气泡提示" class="headerlink" title="屏蔽开机气泡提示"></a>屏蔽开机气泡提示</h3><pre><code>更改路径
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">/work/forlinx/frameworks/base/policy/src/com/android/internal/policy/impl</span><br><span class="line">```  </span><br><span class="line"></span><br><span class="line">    更改文件  </span><br><span class="line">```  </span><br><span class="line">ImmersiveModeConfirmation.java</span><br><span class="line">```  </span><br><span class="line">    更改内容 </span><br><span class="line">```java</span><br><span class="line">    private final class H extends Handler &#123;</span><br><span class="line">    private static final int SHOW = 0;</span><br><span class="line">    private static final int HIDE = 1;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void handleMessage(Message msg) &#123;</span><br><span class="line">        switch(msg.what) &#123;</span><br><span class="line">            case SHOW:</span><br><span class="line">                //handleShow((String)msg.obj);</span><br><span class="line">                break;</span><br><span class="line">            case HIDE:</span><br><span class="line">                handleHide();</span><br><span class="line">                break;</span><br><span class="line">            case PANIC:</span><br><span class="line">                    // handlePanic();</span><br><span class="line">                break;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="修改壁纸"><a href="#修改壁纸" class="headerlink" title="修改壁纸"></a>修改壁纸</h3><ul>
+<li>在frameworks中搜索*wallpaper.jpg 文件，全部替换，如果只得默认壁纸目录的最终会导致，重新回复  </li>
+</ul>
+<h3 id="开启root权限"><a href="#开启root权限" class="headerlink" title="开启root权限"></a>开启root权限</h3><ul>
+<li>开启root保护进程<br>  更改路径<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">/work/forlinx/device/fsl/sabresd_6dq</span><br><span class="line">```  </span><br><span class="line"></span><br><span class="line">    更改文件  </span><br><span class="line">```  </span><br><span class="line">init.rc</span><br><span class="line">```  </span><br><span class="line">    更改内容 </span><br><span class="line">```C</span><br><span class="line">#add for root</span><br><span class="line">on property:sys.boot_completed=1</span><br><span class="line">		su --daemon</span><br><span class="line">#end</span><br><span class="line">```  </span><br><span class="line">+ 添加su文件</span><br><span class="line">文件编译完毕后在以下目录增加SU文件</span><br><span class="line">```  </span><br><span class="line">out/target/product/sabresd_6dq/system/xbin/</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>再次编译，不要clean  </p>
+<h3 id="添加自动安装apk"><a href="#添加自动安装apk" class="headerlink" title="添加自动安装apk"></a>添加自动安装apk</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/work/forlinx/android_kk4.4.2_1.0.0/out/target/product/okmx6qd_c/system/app</span><br></pre></td></tr></table></figure>  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="https://dongzf.work/2019/10/12/i.mx6_and_build/" data-title="小熊孩子" data-tsina="" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2019/10/12/issue/" title="">
+  <strong>上一篇：</strong><br/>
+  <span>
+  (no title)</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2019/10/12/blutNRG/"  title="">
+ <strong>下一篇：</strong><br/> 
+ <span>(no title)
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">Contents</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#安卓4-4编译基于i-mx6"><span class="toc-number">1.</span> <span class="toc-text">安卓4.4编译基于i.mx6</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#编译指令"><span class="toc-number">1.1.</span> <span class="toc-text">编译指令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#屏蔽开机气泡提示"><span class="toc-number">1.1.1.</span> <span class="toc-text">屏蔽开机气泡提示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#修改壁纸"><span class="toc-number">1.1.2.</span> <span class="toc-text">修改壁纸</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#开启root权限"><span class="toc-number">1.1.3.</span> <span class="toc-text">开启root权限</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#添加自动安装apk"><span class="toc-number">1.1.4.</span> <span class="toc-text">添加自动安装apk</span></a></li></ol></li></ol></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  
+
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">Categories</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/about/" title="about">about<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/hardware/" title="hardware">hardware<sup>6</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/instant/" title="instant">instant<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/product/" title="product">product<sup>11</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/software/" title="software">software<sup>8</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">Tags</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/software/" title="-software">-software<sup>9</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/BLE/" title="-BLE">-BLE<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Linux-ARM/" title="-Linux_ARM">-Linux_ARM<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/product/" title="-product">-product<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/design/" title="-design">-design<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Linux-ARM-C/" title="--Linux_ARM-C">--Linux_ARM-C<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/sch-pcb/" title="-sch&amp;pcb">-sch&amp;pcb<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/chip-selected/" title="-chip-selected">-chip-selected<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/wonderful-work/" title="-wonderful work">-wonderful work<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/SIMCARD/" title="-SIMCARD">-SIMCARD<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">Links</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="https://www.rt-thread.org/" target="_blank" title="RTOS_Rthread">RTOS_Rthread</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://www.micropython.org/" target="_blank" title="MicroPython">MicroPython</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="/node_modules/hexo-generator-feed/atom.xml" target="_blank" title="rss">RSS</a>
+</div>
+
+  <div class="weiboshow">
+  <p class="asidetitle">Weibo</p>
+    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=&verifier=&dpc=1"></iframe>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> 许多年后，如果只有一个人看，那个人一定是我！ <br/>
+			但愿我的眼睛，只看得到笑容，但愿你流下每一滴泪都让我感动！天上人间，如果真值得歌颂，也是因为有我才会变得更精彩！</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		<a href="mailto:dongzf_89@qq.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		© 2019 
+		
+		<a href="/about" t1arget="_blank" title="风神大 D">风神大 D</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?e6d1f421bbc9962127a50488f9ed37d1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
